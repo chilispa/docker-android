@@ -31,6 +31,7 @@ declare -A list_of_levels=(
         [8.1]=27
         [9.0]=28
         [10.0]=29
+        [10.0tv]=29
         [11.0]=30
 )
 
@@ -46,6 +47,7 @@ declare -A chromedriver_versions=(
         [8.1]="2.33"
         [9.0]="2.40"
         [10.0]="74.0.3729.6"
+        [10.0tv]="74.0.3729.6"
         [11.0]="83.0.4103.39"
 )
 
@@ -149,6 +151,9 @@ function build() {
             # It is because there is no ARM EABI v7a System Image for 6.0
             IMG_TYPE=google_apis
             BROWSER=browser
+        elif [ "$v" == "10.0tv" ]; then
+            IMG_TYPE=android-tv
+            BROWSER=chrome
         elif [ "$v" == "" ]; then
             IMG_TYPE=google_apis
             BROWSER=chrome            
